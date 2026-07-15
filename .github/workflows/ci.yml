@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate shell scripts syntax
+        run: bash -n scripts/install-skills.sh scripts/list-skills.sh scripts/new-skill.sh
+
+      - name: Validate list script
+        run: ./scripts/list-skills.sh
+
+      - name: Validate scaffold and install flows
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          ./scripts/new-skill.sh --category scratch --skill ci-check --description "CI smoke test skill" --version "0.1.0"
+          ./scripts/list-skills.sh --category scratch --skill ci-check
+
+          target_root="$(mktemp -d)"
+          ./scripts/install-skills.sh --target-root "${target_root}" --mode copy
+          ./scripts/install-skills.sh --target-root "${target_root}" --mode copy
+
+          rm -rf skills/scratch "${target_root}"

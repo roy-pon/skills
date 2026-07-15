@@ -1,0 +1,4 @@
+interface:
+  display_name: "English Writer"
+  short_description: "Draft English reports and slides in your voice"
+  default_prompt: "Use $english-writer to turn my notes into clear report or presentation text."
