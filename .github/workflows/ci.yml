@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate shell scripts syntax
-        run: bash -n scripts/install-skills.sh scripts/list-skills.sh scripts/new-skill.sh
+        run: bash -n scripts/install-skills.sh scripts/list-skills.sh scripts/new-skill.sh scripts/export-gemini-gems.sh
 
       - name: Validate list script
         run: ./scripts/list-skills.sh
@@ -31,7 +31,18 @@ jobs:
           ./scripts/list-skills.sh --category scratch --skill ci-check
 
           target_root="$(mktemp -d)"
+          export_root="$(mktemp -d)"
+          notebook_root="$(mktemp -d)"
           ./scripts/install-skills.sh --target-root "${target_root}" --mode copy
           ./scripts/install-skills.sh --target-root "${target_root}" --mode copy
+          ./scripts/export-gemini-gems.sh --category scratch --skill ci-check --output-root "${export_root}" --clean
+          ./scripts/export-gemini-gems.sh --target notebooklm --category scratch --skill ci-check --output-root "${notebook_root}" --clean
+          test -f "${export_root}/ci-check/instructions.txt"
+          test -f "${export_root}/ci-check/gem.json"
+          test -f "${export_root}/index.csv"
+          test -f "${notebook_root}/ci-check/overview.md"
+          test -f "${notebook_root}/ci-check/playbook.md"
+          test -f "${notebook_root}/ci-check/manifest.json"
+          test -f "${notebook_root}/index.csv"
 
-          rm -rf skills/scratch "${target_root}"
+          rm -rf skills/scratch "${target_root}" "${export_root}" "${notebook_root}"

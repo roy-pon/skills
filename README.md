@@ -145,6 +145,37 @@ Filters can be combined:
 ./scripts/install-skills.sh --runtime agents --category productivity --skill english-writer
 ```
 
+## Export skills for Gemini Gems or NotebookLM
+
+Export skills into a Gemini-ready bundle (default target):
+
+```bash
+./scripts/export-gemini-gems.sh
+```
+
+By default this writes to `dist/gemini` with:
+
+- `dist/gemini/<skill>/instructions.txt` (combined SKILL + references content)
+- `dist/gemini/<skill>/gem.json` (Gem metadata + full instructions payload)
+- `dist/gemini/index.csv` (flat import index for all exported skills)
+
+Useful options:
+
+```bash
+./scripts/export-gemini-gems.sh --category productivity
+./scripts/export-gemini-gems.sh --skill english-writer
+./scripts/export-gemini-gems.sh --output-root /tmp/gemini-export --clean
+./scripts/export-gemini-gems.sh --target notebooklm
+```
+
+NotebookLM target output (default root: `dist/notebooklm`):
+
+- `dist/notebooklm/<skill>/overview.md`
+- `dist/notebooklm/<skill>/playbook.md`
+- `dist/notebooklm/<skill>/references/*.md` (copied from skill references)
+- `dist/notebooklm/<skill>/manifest.json`
+- `dist/notebooklm/index.csv`
+
 ## Add a new skill
 
 Create a scaffold in one command:
