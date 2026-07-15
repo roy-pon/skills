@@ -1,0 +1,4 @@
+interface:
+  display_name: "TLDR"
+  short_description: "Create concise TLDR summaries with key points, actions, and decisions for long text, documents, and discussions."
+  default_prompt: "Use $tldr to help with this task."

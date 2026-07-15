@@ -184,6 +184,7 @@ After scaffolding:
 ## Current skills
 
 - `productivity/english-writer`
+- `productivity/tldr`
 
 ## Notes
 
