@@ -215,6 +215,7 @@ After scaffolding:
 ## Current skills
 
 - `productivity/english-writer`
+- `productivity/humanizer`
 - `productivity/tldr`
 
 ## Notes
