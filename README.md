@@ -216,6 +216,7 @@ After scaffolding:
 
 - `productivity/english-writer`
 - `productivity/humanizer`
+- `productivity/jira-ticket-writer`
 - `productivity/tldr`
 
 ## Notes
