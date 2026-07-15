@@ -1,0 +1,4 @@
+interface:
+  display_name: "Humanizer"
+  short_description: "Rewrite AI-sounding text into natural human writing while preserving meaning, voice, and factual accuracy."
+  default_prompt: "Use $humanizer to help with this task."
