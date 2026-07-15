@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dutch Writer"
+  short_description: "Schrijf en redigeer heldere Nederlandse rapporten, nieuwsbrieven en presentatieteksten"
+  default_prompt: "Gebruik $dutch-writer om mijn Nederlandse tekst helder, scherp en professioneel te maken."
