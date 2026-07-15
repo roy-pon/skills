@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jira Ticket Writer"
+  short_description: "Draft clear Jira tickets from raw input using standardized templates and acceptance criteria."
+  default_prompt: "Use $jira-ticket-writer to help with this task."
