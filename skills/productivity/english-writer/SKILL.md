@@ -2,7 +2,7 @@
 name: english-writer
 description: Write, rewrite, edit, or polish English text for reports, presentations, slide decks, executive summaries, status updates, and professional business communication. Ensures a polished C1 American English style while strictly adhering to rules on em-dashes, logical list usage, and proper sentence case capitalization.
 metadata:
-  version: "1.0.0"
+  version: "0.1.0"
 ---
 
 # English Writer
